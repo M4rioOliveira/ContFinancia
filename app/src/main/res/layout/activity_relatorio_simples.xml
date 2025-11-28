@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F6EA">
+
+    <!-- Botão voltar -->
+    <ImageView
+        android:id="@+id/btnVoltar"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/arrow_back_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Card principal -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardPrincipal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="20dp"
+        android:padding="20dp"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="5dp"
+        app:layout_constraintTop_toBottomOf="@id/btnVoltar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <!-- Ícone + mês -->
+                <LinearLayout
+                    android:id="@+id/boxMes"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/txtMes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Novembro"
+                        android:textStyle="bold"
+                        android:layout_marginStart="10dp"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+
+
+                <!-- Gráfico de barras estático -->
+                <LinearLayout
+                    android:id="@+id/grafico"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:gravity="bottom"
+                    android:layout_marginTop="25dp"
+                    app:layout_constraintTop_toBottomOf="@id/boxMes">
+
+                    <!-- Barra alimentação -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:gravity="bottom"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="10dp">
+
+                        <View
+                            android:layout_width="35dp"
+                            android:layout_height="60dp"
+                            android:background="#D62828"/>
+                    </LinearLayout>
+
+                    <!-- Transporte -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:gravity="bottom"
+                        android:layout_height="match_parent">
+
+                        <View
+                            android:layout_width="35dp"
+                            android:layout_height="90dp"
+                            android:background="#003087" />
+                    </LinearLayout>
+
+                    <!-- Contas Fixas -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:gravity="bottom"
+                        android:layout_height="match_parent">
+
+                        <View
+                            android:layout_width="35dp"
+                            android:layout_height="120dp"
+                            android:background="#E4DD77" />
+                    </LinearLayout>
+
+                    <!-- Outros -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:gravity="bottom"
+                        android:layout_height="match_parent">
+
+                        <View
+                            android:layout_width="35dp"
+                            android:layout_height="150dp"
+                            android:background="#A7E55A" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <!-- Legenda -->
+                <LinearLayout
+                    android:id="@+id/legenda"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp"
+                    android:weightSum="4"
+                    app:layout_constraintTop_toBottomOf="@id/grafico">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="🍎 Alimentação - 15%"
+                        android:paddingLeft="10dp"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="🚗 Transporte - 20%" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="📦 Contas Fixas - 25%" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="⭐ Outros - 40%" />
+                </LinearLayout>
+
+
+                <!-- Título tabela -->
+                <TextView
+                    android:id="@+id/tituloTabela"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Recebidos X Gastos – Últimos 6 meses"
+                    android:textStyle="bold"
+                    android:background="#8BC34A"
+                    android:textColor="#000"
+                    app:layout_constraintTop_toBottomOf="@id/legenda"/>
+
+
+                <!-- Tabela meses -->
+                <TableLayout
+                    android:id="@+id/tabelaMeses"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:stretchColumns="0,1,2"
+                    app:layout_constraintTop_toBottomOf="@id/tituloTabela">
+
+                    <!-- Cabeçalho -->
+                    <TableRow>
+                        <TextView android:text="Mês" android:textStyle="bold"/>
+                        <TextView android:text="Recebido" android:textStyle="bold"/>
+                        <TextView android:text="Gasto" android:textStyle="bold"/>
+                    </TableRow>
+
+                    <!-- Linhas -->
+                    <TableRow>
+                        <TextView android:text="Jan"/>
+                        <TextView android:text="R$ 1200"/>
+                        <TextView android:text="R$ 900"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView android:text="Fev"/>
+                        <TextView android:text="R$ 1400"/>
+                        <TextView android:text="R$ 1200"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView android:text="Mar"/>
+                        <TextView android:text="R$ 2200"/>
+                        <TextView android:text="R$ 1500"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView android:text="Abr"/>
+                        <TextView android:text="R$ 2100"/>
+                        <TextView android:text="R$ 1800"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView android:text="Mai"/>
+                        <TextView android:text="R$ 1800"/>
+                        <TextView android:text="R$ 1700"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView android:text="Jun"/>
+                        <TextView android:text="R$ 3400"/>
+                        <TextView android:text="R$ 2500"/>
+                    </TableRow>
+
+                </TableLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

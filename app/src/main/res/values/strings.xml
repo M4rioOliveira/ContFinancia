@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">ContFinancia</string>
+    <string name="digite_sua_data_de_nascimento">Digite sua data de nascimento</string>
+    <string name="data_de_nascimento">Data de Nascimento</string>
+    <string name="digite_seu_nome">Digite seu nome</string>
+    <string name="nome">Nome</string>
+    <string name="digite_seu_e_mail">Digite seu e-mail</string>
+    <string name="e_mail">E-mail</string>
+    <string name="cadastro">Cadastro</string>
+    <string name="foto_de_perfil_do_usu_rio">Foto de Perfil do Usuário</string>
+    <string name="senha">Senha</string>
+    <string name="digite_sua_senha">Digite sua senha</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="j_tem_conta_sign_in">Já tem conta? Sign In</string>
+    <string name="contfinancia">ContFinancia</string>
+    <string name="descricao_imagem_chatbot">Imagem do chatBot do ContFinancia.</string>
+    <string name="slogan">Controle. Organização. Conciência.</string>
+    <string name="adicionalSlogan">Te ajudamos a organizar o dinheiro do mês!</string>
+    <string name="comecar">Começar</string>
+</resources>

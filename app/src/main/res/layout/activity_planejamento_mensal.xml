@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".PlanejamentoMensal">
+
+    <!-- Botão Voltar -->
+    <ImageView
+        android:id="@+id/btnVoltar"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/arrow_back_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="Voltar"/>
+
+
+    <!-- Card Principal -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardPrincipal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="20dp"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="5dp"
+        app:layout_constraintTop_toBottomOf="@id/btnVoltar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="20dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- Mês -->
+                <TextView
+                    android:id="@+id/txtMes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📅 Novembro"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#000"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <!-- Pergunta -->
+                <TextView
+                    android:id="@+id/txtPergunta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📄 Quanto você quer gastar no mês?"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toBottomOf="@id/txtMes"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <!-- Campo da meta -->
+                <EditText
+                    android:id="@+id/edtMetaMes"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="10dp"
+                    android:hint="$ 0,00"
+                    android:background="#4A7C31"
+                    android:paddingStart="15dp"
+                    android:textColor="#FFF"
+                    android:textColorHint="#FFF"
+                    app:layout_constraintTop_toBottomOf="@id/txtPergunta"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <!-- Gastos até agora -->
+                <TextView
+                    android:id="@+id/txtGastosAgora"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="💰 Gastos até agora:"
+                    android:layout_marginTop="25dp"
+                    android:textColor="#000"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toBottomOf="@id/edtMetaMes"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <EditText
+                    android:id="@+id/edtGastosAgora"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#AFCF90"
+                    android:paddingStart="15dp"
+                    android:textColor="#000"
+                    android:textColorHint="#000"
+                    android:hint="$ 0,00"
+                    app:layout_constraintTop_toBottomOf="@id/txtGastosAgora"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <!-- Tabela -->
+                <TableLayout
+                    android:id="@+id/tabelaStatus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:stretchColumns="0,1,2,3"
+                    app:layout_constraintTop_toBottomOf="@id/edtGastosAgora"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <!-- Cabeçalho -->
+                    <TableRow>
+                        <TextView android:text="Categoria" android:textStyle="bold"/>
+                        <TextView android:text="Meta definida" android:textStyle="bold"/>
+                        <TextView android:text="Gasto atual" android:textStyle="bold"/>
+                        <TextView android:text="Status visual" android:textStyle="bold"/>
+                    </TableRow>
+
+                    <!-- Linha 1 -->
+                    <TableRow>
+                        <TextView android:text="Alimentação"/>
+                        <TextView android:text="R$ 800"/>
+                        <TextView android:text="R$ 700"/>
+                        <TextView android:text="90%" android:background="#E5E597"/>
+                    </TableRow>
+
+                    <!-- Linha 2 -->
+                    <TableRow>
+                        <TextView android:text="Contas Fixas"/>
+                        <TextView android:text="R$ 1.000"/>
+                        <TextView android:text="R$ 1.050"/>
+                        <TextView android:text="105%" android:background="#D62828" android:textColor="#FFF"/>
+                    </TableRow>
+
+                    <!-- Linha 3 -->
+                    <TableRow>
+                        <TextView android:text="Transporte"/>
+                        <TextView android:text="R$ 300"/>
+                        <TextView android:text="R$ 180"/>
+                        <TextView android:text="60%" android:background="#77C465"/>
+                    </TableRow>
+
+                </TableLayout>
+
+                <!-- Aviso -->
+                <TextView
+                    android:id="@+id/txtAviso"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="⚠️ Você gastou 90% da sua meta em Alimentação.\nConsidere reduzir os próximos pedidos por delivery."
+                    android:textColor="#000"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toBottomOf="@id/tabelaStatus"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
